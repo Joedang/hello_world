@@ -1,0 +1,377 @@
+% sample for LaTeX Class 
+\documentclass[12pt]{article}   % Specifies the document style.
+%\documentclass{book}
+%\documentclass{report}
+\usepackage{graphics}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{makeidx}
+\makeindex
+%\setlength{\parindent}{0in}
+%\setlength{\parskip}{12pt}
+
+
+
+\title{\LaTeX\ Class \\ 
+Holiday Inn Fisherman's Wharf\\ San Francisco, CA\\ July 2004}        % Document's title.
+\author{Cheryl Ponchin\\ Sue DeMerritt}  % Author's name.
+\date{\ }
+
+ 
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+
+
+\begin{document}           % End of preamble and beginning of text.
+%\input colornam.sty
+
+
+
+\maketitle                 % Produces the title.
+\pagenumbering{roman} 
+
+\large
+\newpage
+
+
+\tableofcontents
+\newpage
+
+\begin{abstract}
+\large
+\LaTeX\ is widely used in typesetting mathematics.  In this class you will review the basic \LaTeX\ commands as well as ways to use \LaTeX\ to fit your needs.
+\end{abstract}
+
+\newpage
+\pagenumbering{arabic}
+
+\section{Table of Contents}\addcontentsline{toc}{subsection}{You may need to add extra information}
+\label{sec:toc}
+ 
+You can add a table of contents to your paper very easily.  All you need to do is add $\backslash$tableofcontents.  The table of contents will give you all the sections and subsection, etc., with their page numbers.  However, sometimes you need to add extra information to the table of contents that you only want on the contents page.  You do this by adding $\backslash$addcontentsline.
+
+\section*{Adding to Contents}\addcontentsline{toc}{section}{Adding to Contents}
+This section is not numbered, however, you want it to appear in the table of contents.
+
+\section{Make an Index}\label{sec:index}
+
+You can make an index\index{index} at the end of your paper by labeling certain information.
+
+\section{Sections}\label{sec:sections}  
+
+When you type your first section, it will start with number 1.  The next section will be 2, etc.  
+
+\subsection{Subsections}\label{sec:subsections}
+
+When you type your first subsection, it will start with 1.1, then 1.2, etc.  You can change the numbering from Arabic to Roman by creating a $\backslash$renewcommand.  For example:
+
+\renewcommand{\thesection}{\Roman{section}}
+\section{This is a Roman Numbered Section}\label{sec:roman}
+
+This will now number the section in Roman Numerals.\index{roman sectioning}  You can also replace $\backslash$Roman with $\backslash$roman (lower case roman numerals), $\backslash$alph (a,b,$\dots$,z), or $\backslash$Alph (A,B,$\dots$,Z).
+
+\subsubsection{Subsubsections}\label{subsub}
+
+You can have a subsubsection after a subsection.  It will number everything correctly.
+
+There is also a $\backslash$paragraph and a $\backslash$subparagraph.  They look like this:
+\paragraph{Paragraph}\label{para}
+This is the paragraph.\textcolor{yellow}{yellow}
+\subparagraph{Subparagraph}\label{subpara}
+This is the subparagraph.
+
+\renewcommand{\thesection}{\arabic{section}}
+
+
+
+\section{Theorems, Lemmas, etc.}\label{sec:theorems}
+
+When you need to add a \label{pg:theorems} Theorem, Lemma, Proposition, etc., you may need to create the appropriate environment.  For example:
+\begin{verbatim}\newtheorem{theorem}{Theorem}\end{verbatim} and  \begin{verbatim}\newtheorem{lemma}{Lemma}\end{verbatim} in the preamble you will get the following:
+
+\begin{theorem}
+This is the first theorem.
+\end{theorem}
+
+\begin{theorem}
+This is the second theorem.
+\end{theorem}
+
+\begin{lemma}
+This is the first lemma.
+\end{lemma}
+
+You can add extra comments to the Theorem, etc., 
+ 
+\begin{theorem}[Add this]
+This is the third theorem.
+\end{theorem}
+
+\section{Tables and Figures}\label{sec:tabsfigs}
+
+\begin{table}[h]
+\caption{This is the First Table.}
+\begin{center}
+\begin{tabular}{|| l | r | r | r ||}\hline
+Name & \multicolumn{1}{c|}{1} & \multicolumn{1}{c|}{2} &                                                                                             \multicolumn{1}{c||}{3} \\ \hline
+Sam & 2.00 & 23.5 & 1.00 \\ \cline{1-3}  
+Joe & 3.00 & 5.9 & 8.00 \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Our next example is a Figure.
+
+\begin{figure}[h]
+\begin{center}
+\moveright1in\vbox{
+\begin{picture}(200,70)(10,20)
+%\put(29,57){\circle{90}}
+\put(14,45){\line(1,2){15}}
+\put(29,75){\line(1,-2){15}}
+\put(14,45){\line(1,0){30}}
+\put(29,75){\circle*{2}}
+%\put(12.2,68){\circle*{2}}
+\put(14.1,45){\circle*{2}}
+\put(44,45){\circle*{2}}
+\put(28,79){\mbox{$\scriptstyle B$}}
+%\put(3,66){\mbox{$\scriptstyle X$}}
+\put(6,41){\mbox{$\scriptstyle A$}}
+\put(45,41){\mbox{$\scriptstyle C$}}
+\end{picture}
+}\end{center}
+\caption{This is a design done in \LaTeX\ picture.}
+\end{figure}
+
+
+\section{Itemizing}\label{sec:itemize}
+
+There are many ways to itemize lists.  One way is to use the $\backslash$begin\{itemize\} $\backslash$end\{itemize\}
+\begin{itemize}
+\item This is the first example.
+\item When using this format you get a bullet mark to identify the item.
+\begin{itemize}
+\item When you do another itemize in an itemize environment you get a --, etc.
+\end{itemize}
+\end{itemize}
+If you need numerals, use the enumerate command
+\begin{enumerate}
+\item This is the first numbered list.
+\item When using this format you get a numbered list.
+\begin{enumerate}
+\item When you do another enumerate in an enumerate environment you get an (a), etc.
+\item You can also put a frame around a word by using $\backslash$fbox, i.e., Meet me in the \fbox{square}. You can also change the thickness of the \setlength\fboxrule{2pt}\fbox{frame}.
+\item You can \raisebox{.2em}{raise} or \raisebox{-.2em}{lower} words in a line by using the $\backslash$raisebox command.  
+\end{enumerate}
+\end{enumerate}
+You can also change the default with adding the information you need in brackets after the $\backslash$item command. For example:
+\begin{itemize}
+\item[$\ast$] This has an asterisk instead of a bullet.
+\end{itemize}
+
+\section{Graphics}\label{sec:graphics}
+
+There are many way to create graphics using \LaTeX.  One of those ways is by using the picture environment.  See the example below.  
+
+
+\moveright1in\vbox{
+\begin{picture}(200,70)(10,20)
+%\put(29,57){\circle{90}}
+\put(14,45){\line(1,2){15}}
+\put(29,75){\line(1,-2){15}}
+\put(14,45){\line(1,0){30}}
+\put(29,75){\circle*{2}}
+%\put(12.2,68){\circle*{2}}
+\put(14.1,45){\circle*{2}}
+\put(44,45){\circle*{2}}
+\put(28,79){\mbox{$\scriptstyle B$}}
+%\put(3,66){\mbox{$\scriptstyle X$}}
+\put(6,41){\mbox{$\scriptstyle A$}}
+\put(45,41){\mbox{$\scriptstyle C$}}
+\end{picture}
+}
+
+You can also import a picture
+ 
+\begin{figure}[h]
+\vskip1.2in
+\centerline{\hbox to 3cm{\special{bmp:tex.bmp x=3cm y=3cm}}}
+\vskip.2in
+\caption{This is the TUG logo.}
+\end{figure}
+
+\section{Footnotes}\label{sec:footnotes}
+
+Footnotes\footnote{This is an example of a footnote.} are easy to do with \LaTeX.
+
+\section{Math}\label{sec:math} 
+\LaTeX\ is also very good at typesetting mathematical formulas like:
+       \( x-3y = 7 \) 
+or
+       \( a_{1} > x^{2n} / y^{2n} > x' \).
+
+\subsection{Displayed Math}\label{sec:displayed}
+
+Mathematical formulas may be placed within paragraphs of text.  But they may also be ``displayed.''  In displayed math formulas, the formulas are displayed between lines of text, as shown below: 
+\[ x' + y^{2} = z_{i}^{2}. \]
+
+There are times when you need equations to be labeled~(\ref{eq:1a}), (\ref{eq:1b}), etc.  One way you can do this is by subequations. You can also refer to it as just Equation~(\ref{eq:1}).
+
+\begin{subequations}\label{eq:1}
+  \begin{equation}\label{eq:1a}
+    x+y=z
+  \end{equation}
+  \begin{equation}\label{eq:1b}
+    z=x+y
+  \end{equation}
+\end{subequations}
+
+\section{Special Commands}\label{sec:commands}
+
+{\LaTeX} interprets some common characters as commands, so you must type
+special commands to generate them.  These characters include the
+following: \$, \&, \%, \#, \{, and \}.
+
+\section{Macro Writing}
+
+Macro writing is used to make your typing easier.  
+
+\begin{tabular}{ll}
+\texttt{I like $\backslash$TeX.} & I like \TeX.\\
+\texttt{I like $\backslash$LaTeX.} & I like \LaTeX.\\
+\end{tabular}
+
+\noindent
+is easier to write than
+
+\begin{verbatim}
+I like T\kern-.1667em\lower.5ex\hbox{E}\kern-.125emX\@.
+I like L\kern-.36em{\setbox0\hbox{T}\vbox to\ht0{%
+  \hbox{$\m@th$\csname S@\f@size\endcsname\fontsize
+  \sf@size\z@\math@fontsfalse\selectfont A}\vss}}%
+  \kern-.15em T\kern-.1667em\lower.5ex\hbox{E}\kern-.125emX\@
+\end{verbatim}
+
+It is important to spaces after macro names.
+
+\begin{tabular}{ll}
+\texttt{$\backslash$TeX has been good to me.}  & \TeX has been good to me.\\
+\texttt{$\backslash$TeX\ has been good to me.}  & \TeX\ has been good to me.
+\end{tabular}
+
+\noindent
+Another reason to use macros is when you need the same expression with different arguments.  This macro:
+\begin{verbatim}
+\def\mat#1#2#3#4{\left(\begin{array}{cc}#1 & #2\\ 
+                 #3 & #4\end{array}\right)}
+\end{verbatim}
+
+\def\mat#1#2#3#4{\left(\begin{array}{cc}#1 & #2\\ #3 & #4\end{array}\right)}
+
+\noindent
+produces this:  
+\[ \mat{3x}{-2y}{-x}{2y} \]
+
+\noindent
+by only having to type 
+\begin{verbatim}
+\[ \mat{3x}{-2y}{-x}{2y} \]
+\end{verbatim}
+
+\section{Bibliographies}\label{sec:bibs}
+
+\def\BIBTeX{B{\small{IB}}\TeX}
+
+There are different ways to do Bibliographies.  One way is to use 
+\BIBTeX.  Create a \BIBTeX\ file and include the appropriate  information:
+\begin{verbatim}
+\bibliographystyle{plain}
+\bibliography{paper}
+\end{verbatim}
+The bibliographystyle explains which style you are using.  The bibliography line is the .bib file which is used.
+
+In the .bib file use the proper environment, for example,
+\begin{verbatim}
+@book{lamport86,
+  author = "Leslie Lamport",
+  title = {\LaTeX: A Document Preparation System",
+  publisher = "Addison--Wesley", 
+  year = 1986,
+}
+\end{verbatim}
+
+You can use this reference in the line of text by typing\break  $\backslash$cite\{lamport86\}.  When you do this you get the reference number \cite{lamport86} .  If you do not want to show the reference number anywhere in the paper, however you need to use it as a reference you can say $\backslash$nocite\{weening\}. It will then only appear in the References section. 
+
+\section{Labeling and Referencing}\label{sec:labref}
+
+Throughout these examples the sections have been labeled.  That is so you can reference them in your paper.  For example if you want to refer to the first section.  You can say Section~\ref{sec:sections}  was very interesting. You can also reference papers by using a page reference $\backslash$pageref, i.e., Please see 
+Page~\pageref{pg:theorems} for an example on Theorems.
+
+\section{Marking the Margin of a Paragraph}\label{margins}
+
+\marginpar{\rule[-17.5mm]{1mm}{18mm}}
+This will mark the current paragraph with a line in the margin.  You might want to do this if you want to bring attention to a specific margin in your paper. 
+
+\marginpar{See this statement.}
+You can also add words in the margin if you want to add a specific statement that you want the reader to notice that is not necessarily in the paragraph itself.
+
+\section{Text in Columns}\label{sec:columns}
+
+You can typeset a paper in a regular paragraph form. Which will go along until the margin that was set.  Then if you need to you can change the number of columns to suit your needs.
+
+\begin{multicols}{2}
+Now you can continue typing as usual only the column will not be in single column format, it will change to the amount of columns you suggest.
+\end{multicols}
+
+\clearpage
+
+\begin{multicols}{2}
+[\section*{An Added Title}]
+Now you can continue typing as usual only the column will not be in single column format, it will change to the amount of columns you suggest.
+\end{multicols}
+
+\begin{multicols}{2}
+[\section*{An Added Title}]
+Now you can continue typing as usual only the column will not be in single column format, it will change to the amount of columns you suggest.
+\end{multicols}
+
+{\setlength{\columnseprule}{2pt}
+\begin{multicols}{3}
+Now you can continue typing as usual only the column will not be in single column format, it will change to the amount of columns you suggest.
+\end{multicols}
+}
+
+{\setlength{\columnseprule}{0pt}
+\begin{multicols}{3}
+\raggedright
+Now you can continue typing as usual only the column will not be in single column format, it will change to the amount of columns you suggest.
+\end{multicols}
+}
+
+
+\clearpage
+
+\appendix
+\section*{Appendix}\addcontentsline{toc}{section}{Appendix}
+
+\section{List of Tables}\label{sec:tables}
+
+\listoftables
+
+\section{List of Figures}\label{sec:figures}
+
+\listoffigures
+
+\newpage
+\nocite{weening}
+
+
+\bibliographystyle{plain}
+\bibliography{paper}
+\newpage
+\printindex
+
+\end{document}      % End of document.

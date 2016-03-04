@@ -1,0 +1,64 @@
+\documentclass{article}
+
+\usepackage{graphicx}%lets you put images in the document
+\usepackage{amsmath}%some useful stuff for math
+\usepackage{amssymb}%more useful tools
+\usepackage{lipsum}%lets you insert filler text
+\usepackage[pdfborder={0 0 0}]{hyperref}%lets you make click-able links. The package option is set to turn on the colored boxed around the links.
+
+\title{A Sample \LaTeX{} Document}
+\author{Joe Shields}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\begin{abstract}
+This is a short description of the document to follow.
+\end{abstract}
+
+\section{Section heading}
+This is a very brief description of how to use \LaTeX. If you want something more comprehensive, look 
+\href{https://www.tug.org/tug2014/latexclass-sample.pdf}{here}, \href{https://www.tug.org/tug2014/latexclass-sample.tex}{here}, and \href{https://en.wikibooks.org/wiki/LaTeX}{here} (clickable).
+
+\section{Another section heading: references}
+This is an automatic reference to section \ref{sec:subsec}. It's handled automatically by latex, but you may have to compile twice when you make or change a reference. It will tell you this when you compile. It will tell you
+\begin{verbatim}
+LaTeX Warning: There were undefined references.
+\end{verbatim}
+You can also label and reference items in a list, like item \ref{item:condoms} in section \ref{sec:unlab}. Notice that when I try to label and reference the un-numbered section, it grabs the previous section instead. To call a reference, it needs a number assigned to it. 
+You can reference anything that gets automatically numbered, like equations, figures (like figure \ref{fig:doge}), and citations\cite{bergman2011}. I reccommend naming your labels like \texttt{fig:doge} and \texttt{tab:budget}.
+\subsection{A subsection}\label{sec:subsec}
+
+\subsubsection{A subsubsection}
+Figures like figure \ref{fig:doge} are a kind of object called a float. They are placed within the page automatically by \LaTeX{} 
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{doge.jpg}
+\caption{Wow, much figure. Very automatic. Such professional.}
+\label{fig:doge}
+\end{figure}
+
+Here's what the filler text looks like:
+\lipsum
+
+\section*{An un-numbered section}
+\addcontentsline{toc}{section}{my number-less section}
+\label{sec:unlab}
+Here's an enumerated list:
+\begin{enumerate}
+\item Bananas
+\item Sand paper
+\item Coffee
+\item Acetone
+\item Masking tape
+\item Condoms\label{item:condoms}
+\item Duct tape
+\end{enumerate}
+
+\bibliographystyle{ieeetr}
+\bibliography{heat.bib}
+\addcontentsline{toc}{section}{References}
+
+\end{document}
