@@ -7,7 +7,7 @@ Leslie has a dog named Moose.
 He's cool.
 Rockets.
 Dogs are fun.
-#THIS IS A NEW HEADING
+#THIS IS A NEW FOOTING
 ```
 .
 |-- ME493
