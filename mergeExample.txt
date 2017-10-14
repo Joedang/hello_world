@@ -1,0 +1,78 @@
+(trusty)joedang@localhost:~/Documents/hello_world
+$ git status
+On branch mergeExample
+nothing to commit, working directory clean
+(trusty)joedang@localhost:~/Documents/hello_world
+$ git branch -a
+  dev_example
+  master
+* mergeExample
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/Joedang-patch-1
+  remotes/origin/master
+(trusty)joedang@localhost:~/Documents/hello_world
+$ git merge dev_example
+Auto-merging extra.txt
+CONFLICT (content): Merge conflict in extra.txt
+Automatic merge failed; fix conflicts and then commit the result.
+(trusty)joedang@localhost:~/Documents/hello_world
+$ git status
+On branch mergeExample
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+        both modified:      extra.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(trusty)joedang@localhost:~/Documents/hello_world
+$ cat extra.txt
+<<<<<<< HEAD
+This is yet another file.
+Here is a line I added to the file in the master branch.
+=======
+This is still another file.
+I'm making changes to this line, but in a different way and on branch dev_example.
+Wheeee, more text!
+>>>>>>> dev_example
+(trusty)joedang@localhost:~/Documents/hello_world
+$ vim extra.txt
+(trusty)joedang@localhost:~/Documents/hello_world
+$ cat extra.txt
+This is yet another file.
+Here is a line I added to the file in the master branch.
+I'm making changes to this line, but in a different way and on branch dev_example.
+Wheeee, more text!
+(trusty)joedang@localhost:~/Documents/hello_world
+$ git add extra.txt
+(trusty)joedang@localhost:~/Documents/hello_world
+$ git status
+On branch mergeExample
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+
+        modified:   extra.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        mergeExample.txt
+
+(trusty)joedang@localhost:~/Documents/hello_world
+$ git commit
+[mergeExample a60b093] Merge branch 'dev_example' into mergeExample
+(trusty)joedang@localhost:~/Documents/hello_world
+$ git status
+On branch mergeExample
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        mergeExample.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+
