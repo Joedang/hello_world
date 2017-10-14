@@ -60,7 +60,7 @@ for (n in 1:3){
 par(bg="white", mfrow=c(1,1))
 plot.new()
 plot.window(xlim=c(0,1), ylim= c(0,1), asp=1)
-lines(hilbert(7), col=rgb(1,0,0), lwd=0.002*96)
+lines(hilbert(5), col=rgb(1,0,0), lwd=0.002*96)
 border <- data.frame(x=c(0,1,1,0,0), y=c(0,0,1,1,0))
 border <- shift(1.04*border, c(-0.02, -0.02))
 lines(border, col=rgb(1,0,0), lwd=0.002*96)
