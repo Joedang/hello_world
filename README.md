@@ -15,3 +15,5 @@ Dogs are fun.
     |-- greek_letters
     `-- latin_letters
 ```
+
+These are some changes for the workshop.
