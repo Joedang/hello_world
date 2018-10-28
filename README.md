@@ -1,9 +1,11 @@
-HYDROGEN add a line# hello_world
+Helium add a line# hello_world
 My first Github repository.
 I play the tuba. 
 Jacob smells bad.
 Joe smells good.
 Leslie has a dog named Moose.
+It's close to Halloween!!!
+This is a garbage change.
 He's cool.
 Rockets.
 Dogs are fun.
