@@ -1,4 +1,6 @@
 This is yet another file.
 Here is a line I added to the file in the master branch.
+Here's a line that will not conflict.
 Here's a new line to commit.
 Here's yet another line to commit... this time, from GitHub!
+Here's a line that will conflict.
